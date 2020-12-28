@@ -1,0 +1,127 @@
+Classes and Objects
+
+1. Create a new file and register it in index.html.
+   (NOTE: file name should be same as class name)
+
+2. class ball{
+     constructor(-parameters-){
+          properties of the object are defined here
+          to define them the keyword 'this' is used
+          for ex, this.x = 50;
+     }
+
+     display(){
+          function of the object is defined here using the properties defined in the constructor
+          for eg, ellipse(this.x, this.y, this.radius, this.radius);
+     }
+}
+
+3. Create an object
+     var pingpong;
+     function setup(){
+          pingpong = new ball();
+     }
+
+     function draw(){
+          pingpong.display();
+     }
+
+
+
+
+
+Conditional Programming
+     IF STATEMENT
+
+     if(it is raining){
+          open the umbrella
+     }
+
+     if(condition){
+          do this if the condition is true
+     }
+
+     AND logic &&
+     OR logic ||
+
+     if(trex.y>160 && keyDown("space")){
+          trex.velocityY = -10;
+     }
+
+     if(ball.x<0 || ball.x>400){
+          ball.x = 200;
+     }
+
+
+     FOR LOOP
+
+     for(var i = 0; i < 100; i=i+10){
+          text("Caleb is the best!", 20, i);
+     }
+
+     for(initialize the variable; till where do want to go; how do you want to go){
+          if conditions are met then do this
+     }
+
+
+     SWITCH STATEMENT
+
+     switch(condition){
+          case 1 : do this;
+                 break;
+          case 2 : do this;
+                 break;
+          default: break;
+     }
+
+
+
+frameCount = page number
+           = number of frames
+               
+frameRate = number pf pages read per second
+          = number of frames per second
+
+
+
+
+PHYSICS ENGINE
+
+Book store --> genre --> get the required book 
+Physics Engine --> module --> access the required function
+
+step 1:
+Namespace your modules:
+     const Engine = Matter.Engine
+     const World = Matter.World
+     const Bodies = Matter.Bodies
+
+step 2:
+Create your own engine:
+     var engine = Engine.create();
+     var world = engine.world;
+
+step 3:
+Create your bodies:
+
+     var options = {
+          friction : 0.5,
+          density : 1.2,
+          restitution : 1.0
+     }
+     var box = Bodies.rectangle(x, y, width, height, options);
+     
+     rectMode(CENTER);
+     rect(box.x, box.y, box.width, box.height);
+
+step 6:
+Add the bodies created to the world:
+     World.add(world,box);
+
+
+step 5:
+Update your engine:
+
+     function draw(){
+          Engine.update(engine);
+     }
